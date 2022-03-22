@@ -189,7 +189,6 @@ const AvailableAlgorithmsListModal = ({ availableAlgorithmsList, open, closeHand
                   )}
                   secondary={algorithm.description}
                 />
-
               </MenuItem>
             ))}
           </List>

@@ -51,6 +51,8 @@ const Account = Loadable(lazy(() => import('./pages/dashboard/Account')));
 const MLModelsList = Loadable(lazy(() => import('./pages/dashboard/MLModelsList')));
 const MLModelDetails = Loadable(lazy(() => import('./pages/dashboard/MLModelDetails')));
 const MLModelFitResultsDetails = Loadable(lazy(() => import('./pages/dashboard/MLModelFitResultsDetails')));
+const DailyAnalysis = Loadable(lazy(() => import('./pages/dashboard/DailyAnalysis')));
+const Sync = Loadable(lazy(() => import('./pages/dashboard/Sync')));
 const Analytics = Loadable(lazy(() => import('./pages/dashboard/Analytics')));
 const Calendar = Loadable(lazy(() => import('./pages/dashboard/Calendar')));
 const Chat = Loadable(lazy(() => import('./pages/dashboard/Chat')));
@@ -188,6 +190,14 @@ const routes = [
             element: <MLModelFitResultsDetails />
           },
         ]
+      },
+      {
+        path: 'dailyanalysis',
+        element: <DailyAnalysis />
+      },
+      {
+        path: 'sync',
+        element: <Sync />
       },
       {
         path: 'account',

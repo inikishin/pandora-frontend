@@ -18,6 +18,7 @@ import ShoppingBagIcon from '../../icons/ShoppingBag';
 import ShoppingCartIcon from '../../icons/ShoppingCart';
 import UserIcon from '../../icons/User';
 import UsersIcon from '../../icons/Users';
+import SyncIcon from '@material-ui/icons/Sync';
 import Logo from '../Logo';
 import NavSection from '../NavSection';
 import Scrollbar from '../Scrollbar';
@@ -37,8 +38,8 @@ const sections = [
         icon: <ChartSquareBarIcon fontSize="small" />
       },
       {
-        title: 'Analytics',
-        path: '/dashboard/analytics',
+        title: 'Daily analysis',
+        path: '/dashboard/dailyanalysis',
         icon: <ChartPieIcon fontSize="small" />
       },
       {
@@ -56,6 +57,11 @@ const sections = [
   {
     title: 'Management',
     items: [
+      {
+        title: 'Sync',
+        path: '/dashboard/sync',
+        icon: <SyncIcon fontSize="small" />
+      },
       {
         title: 'Customers',
         path: '/dashboard/customers',

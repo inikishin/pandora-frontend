@@ -49,7 +49,7 @@ const DynamicInput = ({ type, name, defaultValue, description, onChange, value, 
         type="number"
       />
       )}
-      {(type === 'bool') && (
+      {(type === 'boolean') && (
         <FormControlLabel
           sx={{ m: 1 }}
           control={(
