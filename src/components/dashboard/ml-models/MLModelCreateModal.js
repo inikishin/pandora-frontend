@@ -39,7 +39,10 @@ const MLModelCreateModal = ({ open, closeHandle }) => {
     fullname: '',
     description: '',
     timeframe: '',
-    ticker: ''
+    ticker: '',
+    split_train_percentage: 80,
+    target: '',
+    shift: ''
   };
 
   const formik = useFormik({
@@ -51,6 +54,13 @@ const MLModelCreateModal = ({ open, closeHandle }) => {
         timeframe_code: timeframes.list.find((item) => (item.id === values.timeframe)).code,
         ticker_code: tickers.list.find((item) => (item.id === values.ticker)).code,
         parameters: {
+          fit: {
+            split_train_percentage: values.split_train_percentage / 100
+          },
+          predict: {
+            target: values.target,
+            shift: values.shift
+          },
           features: [],
         },
         user: user.id,
@@ -152,6 +162,45 @@ const MLModelCreateModal = ({ open, closeHandle }) => {
                   {tickers.list.slice(1, 20).map((item) => (<MenuItem key={item.id} value={item.id}>{item.code.toUpperCase()}</MenuItem>))}
                 </Select>
               </FormControl>
+              <TextField
+                sx={{ m: 1 }}
+                fullWidth
+                label="Split train percentage"
+                name="split_train_percentage"
+                required
+                helperText="ML Model split_train_percentage"
+                variant="outlined"
+                onChange={formik.handleChange}
+                value={formik.values.split_train_percentage}
+                type="number"
+              />
+              <FormControl
+                fullWidth
+                sx={{ m: 1 }}
+              >
+                <InputLabel>Target</InputLabel>
+                <Select
+                  value={formik.values.target}
+                  label="Target"
+                  onChange={formik.handleChange}
+                  name="target"
+                  required
+                >
+                  {['open', 'high', 'low', 'close'].map((item) => (<MenuItem key={item} value={item}>{item.toUpperCase()}</MenuItem>))}
+                </Select>
+              </FormControl>
+              <TextField
+                sx={{ m: 1 }}
+                fullWidth
+                label="Target shift"
+                name="shift"
+                required
+                helperText="ML Model prediction shift"
+                variant="outlined"
+                onChange={formik.handleChange}
+                value={formik.values.shift}
+                type="number"
+              />
             </Box>
             <Box
               sx={{
