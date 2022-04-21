@@ -14,6 +14,8 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
 # docker build -t pandora-frontend .
-# docker run --name pandora-frontend --network pandora pandora-frontend
+# docker run --name pandora-frontend --network pandora -d pandora-frontend
 
 # add to default.conf after index.html: 'try_files $uri /index.html;'
+
+# docker run --name nginx -p 80:80 -p 443:443 -d --network pandora --mount type=bind,source=/opt/nginx.conf,target=/etc/nginx/conf.d nginx:1.19.2
