@@ -66,10 +66,10 @@ const HomeHero = (props) => {
           color="primary"
           component={RouterLink}
           size="large"
-          to="/browse"
+          to="/dashboard"
           variant="contained"
         >
-          Browse Components
+          Dashboard
         </Button>
         <Box
           sx={{
